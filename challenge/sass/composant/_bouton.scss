@@ -1,0 +1,153 @@
+.btn:link,.btn:visited
+{
+
+      @include btn;
+    border:none;
+    cursor:pointer;
+}
+
+.btn:hover{
+
+  @include btn;
+  &::after
+  {
+    transform: scaleX(1.5) scaleY(1.6);  /*l'element en derriere s'agrandissent une fois plus que l'element parant*/
+    opacity: 0;
+  }
+}
+.btn:active
+{
+  @include btn;
+}
+
+.btn
+{
+
+
+ 
+  &--white
+  {
+      background-color:$color-white;
+      color:$color4;
+      
+
+      &::after{
+        content:"";
+    display :inline-block;
+    height:100%;
+    width: 100%;
+    border-radius: 100px;
+  
+    /* pour cacher l'element debordant fils*/
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1 ; /* un element derriere un autre */
+    transition: all .4s;
+    background-color:$color-white;
+      }
+  }
+
+  &--green
+  {
+      background-color:$couleur2;
+      color:$color-noir;
+      width:25%;
+      border: none;
+      cursor: pointer;
+     
+
+      &::after{
+        content:"";
+    display :inline-block;
+    height:100%;
+    width: 100%;
+    border-radius: 100px;
+  
+    /* pour cacher l'element debordant fils*/
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1 ; /* un element derriere un autre */
+    transition: all .4s;
+    background-color:$couleur2;
+      }
+  }
+
+  &--text{
+    &:link,
+    &:visited
+    {
+      color:white;
+      display:inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $couleur1;
+      padding: .3rem;
+      font-family: $font-family;
+      font-size: $font-sizes;
+      font-weight: 300;
+      transform-style: all .2s;
+     
+    }
+  
+    &:hover
+    { 
+      color:$color-white;
+      background-color: $couleur2;
+      font-size: $font-sizes;
+      font-weight: 300;
+      box-shadow: 0 1rem 2rem rgba($color-noir, .15);
+      transform: translateY(-2px);
+      
+    }
+
+    &:active
+    {
+      box-shadow: 0 .5rem 1rem rgba($color-noir, .15);
+      transform: translateY(0);
+     
+    }
+  }
+
+ &--animated 
+  {
+    animation-name: moveInLeft; /* appel fonction @keyframes */
+    animation-duration: 2s; /* durée de l'animation */
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards; /* le bouton ne s'affichera pas jusqu'a atteindre son temps d'animation */
+  }
+
+  &-text{
+
+    &:link,
+    &:visited
+    {
+      color:$couleur1;
+      display:inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $couleur1;
+      padding: .3rem;
+      font-family: $font-family;
+      font-size: $font-sizes;
+      font-weight: 100;
+      transform-style: all .2s;
+
+    }
+  
+    &:hover
+    { 
+      color:$color-white;
+      background-color: $couleur2;
+      box-shadow: 0 1rem 2rem rgba($color-noir, .15);
+      transform: translateY(-2px);
+    }
+
+    &:active
+    {
+      box-shadow: 0 .5rem 1rem rgba($color-noir, .15);
+      transform: translateY(0);
+    }
+  }
+
+}

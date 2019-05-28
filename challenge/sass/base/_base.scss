@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before
+{
+  margin : 0;
+  padding : 0;
+  /* box-sizing: border-box; */
+  box-sizing : inherit; /* best practice */
+}
+
+html
+{
+  /* font-size:10px;  bad practice*/
+  font-size:62.5%; /* good practice : definition d'un 1rem=10px/16px=62.5% */
+
+  @include responsive(tab-land){
+    font-size:56.25%;  // 1rem = 9px , 9/16 = 56.25%
+  }
+
+  @include responsive(tab-portrait){
+    font-size:50%;  //1rem = 8px , 8/16 = 50%
+  }
+
+  @include responsive(phone){
+    font-size:30%;  //1rem = 4.8px , 4.8/16 = 30%
+  }
+  @include responsive(big-desk){
+    font-size:75%; // 1rem = 12px , 12/16 = 75%
+  }
+}
+
+
+body {
+  box-sizing:border-box;
+  padding:3rem;
+
+
+  @include responsive(tab-portrait){
+    padding:0;
+  }
+
+
+}

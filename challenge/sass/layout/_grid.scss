@@ -1,0 +1,74 @@
+.row
+{
+    max-width: $grid-width; /* max-width : pour adapter l'affichage */
+    background-color: #eee;
+    margin:0 auto; /*centrer l'element dans un block*/
+    
+    &:not(:last-child)
+    {
+        margin-bottom: $grid-vertical; //everything except the last child
+        @include responsive(tab-portrait){
+            margin-bottom:$grid-vertical-small;
+        }
+ 
+    }
+
+    @include responsive(tab-portrait){
+        max-width:50rem;
+    }
+
+    @include clearfix;
+
+    //selecteur attribut 
+    
+    [class^="col-"]   //selectionnez tous les elements qui commencent par ^
+    {
+       
+        float: left; 
+        &:not(:last-child)
+        {
+            @include col;
+
+            @include responsive(tab-portrait){
+                margin-right:0;
+                margin-bottom: $grid-vertical-small;
+            }
+        }  
+
+        @include responsive(tab-portrait){
+            width:100% !important;
+        }
+    }
+
+    .col-1-of-2
+    {
+        width:calc((100% - #{$grid-horizontal}) / 2);
+    }
+
+    .col-1-of-3
+    {
+        width:calc((100% - 2 * #{$grid-horizontal})/3);
+    }
+
+    .col-2-of-3
+    {
+        width:calc(2 *((100% - 2 * #{$grid-horizontal})/3) + #{$grid-horizontal});
+    }
+    
+    .col-1-of-4
+    {
+        width:calc((100% - 3 * #{$grid-horizontal})/4);
+    }
+
+    .col-2-of-4
+    {
+        width:calc(2 *((100% - 3 * #{$grid-horizontal})/4) + #{$grid-horizontal});
+    }
+
+    .col-3-of-4
+    {
+        width:calc(3 *((100% - 3 * #{$grid-horizontal})/4) + 2 * #{$grid-horizontal});
+    }
+}
+
+   

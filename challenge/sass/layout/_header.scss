@@ -1,0 +1,42 @@
+.header
+{
+  height:95vh;
+  background: linear-gradient(to right bottom,
+          rgba($couleur1, 0.8),
+          rgba($couleur2, 0.8))
+  ,url(../img/hero.jpg); /* pour jouer sur la nuance d'une image */
+  background-size:cover;
+  background-position: top;
+  position:relative;
+  clip-path: polygon(50% 0%, 100% 0, 100% 75vh, 0 100%, 0 0); /*https://bennettfeely.com/clippy/ */
+  margin-bottom: -20rem;
+
+  &__logo //nesting
+  {
+  position: absolute;
+  top:4rem;
+  left:4rem;
+  } 
+
+  &__logowhite
+{
+  /*height:38px;*/
+  height:3.8rem;
+  animation-name: moveInBottom; /* appel fonction @keyframes */
+  animation-duration:2s;       /* durée de l'animation */
+  /*animation-delay: 3s;*/
+  animation-timing-function: ease-out;
+}
+
+&__text-box
+{
+  position: absolute;
+  top:40%;
+  left:50%;
+  transform: translate(-50% , -50%); /* centrer les elements par rapport à la div main   */
+  text-align:center ; /*center le bouton*/
+}
+//fin nesting
+  
+}
+
